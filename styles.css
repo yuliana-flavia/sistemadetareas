@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.alias {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.status-options button {
+  margin-left: 5px;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.status-message {
+  margin-left: 10px;
+  flex-grow: 1;
+}
+.emoji-picker button {
+  font-size: 1.3em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

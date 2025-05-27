@@ -1,36 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel Invisible</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Estados Oficina</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Panel Invisible 🔒</h1>
-
-  <div id="status-board">
-    <!-- Estado personal -->
-    <div id="my-status" class="status-box">
-      <label for="icon">Elegí tu ícono:</label>
-      <select id="icon">
-        <option value="🎸" title="Ian - Músico">🎸</option>
-        <option value="🎲" title="Marcos - Juegos de mesa">🎲</option>
-        <option value="🕶️" title="Bea - Lentes">🕶️</option>
-        <option value="🍕" title="Pablo - Pizza">🍕</option>
-        <option value="🧉" title="Nico - Mate">🧉</option>
-        <option value="💻" title="Flavia - Compu">💻</option>
-        <option value="🌱" title="Fide - Planta">🌱</option>
-      </select>
-      <input type="text" id="message" placeholder="Escribí algo..." />
-      <button onclick="updateStatus()">✔️</button>
-    </div>
-
-    <!-- Visualización general de estados -->
-    <div id="everyone-status" class="status-container"></div>
+  <div class="container">
+    <h1>💻 Mural de la Oficina</h1>
+    <div id="cards"></div>
+    <h2>👀 Jefes en Zona</h2>
+    <div id="bossStatus"></div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
