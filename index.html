@@ -1,69 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel Camuflado</title>
+  <title>Panel Invisible</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Panel de Actividad</h1>
+  <h1>Panel Invisible 🔒</h1>
 
-    <div class="form-section">
-      <label for="alias">Alias:</label>
-      <select id="alias">
-        <option value="compu">🖥️ compu</option>
-        <option value="banda">🎸 banda</option>
-        <option value="mesa">🎲 mesa</option>
-        <option value="diva">🕶️ diva</option>
-        <option value="muzza">🍕 muzza</option>
-        <option value="mate">🧉 mate</option>
+  <div id="status-board">
+    <!-- Estado personal -->
+    <div id="my-status" class="status-box">
+      <label for="icon">Elegí tu ícono:</label>
+      <select id="icon">
+        <option value="🎸" title="Ian - Músico">🎸</option>
+        <option value="🎲" title="Marcos - Juegos de mesa">🎲</option>
+        <option value="🕶️" title="Bea - Lentes">🕶️</option>
+        <option value="🍕" title="Pablo - Pizza">🍕</option>
+        <option value="🧉" title="Nico - Mate">🧉</option>
+        <option value="💻" title="Flavia - Compu">💻</option>
+        <option value="🌱" title="Fide - Planta">🌱</option>
       </select>
-
-      <label for="status">Estado:</label>
-      <select id="status">
-        <option value="working" title="Trabajando">🟢</option>
-        <option value="semi-idle" title="Alerta, medio al pedo">🟡</option>
-        <option value="idle" title="Re al pedo">🔴</option>
-        <option value="out" title="Fuera de la oficina">⚪</option>
-      </select>
-
-      <textarea id="freeText" placeholder="Escribí lo que quieras..."></textarea>
-
-      <button onclick="saveState()">✔</button>
+      <input type="text" id="message" placeholder="Escribí algo..." />
+      <button onclick="updateStatus()">✔️</button>
     </div>
 
-    <div class="boss-section">
-      <h2>Capos</h2>
-      <div class="boss-row">
-        <label><input type="checkbox" id="capo1" /> 🎨 capo1</label>
-        <select id="mood1">
-          <option title="Chill">😎</option>
-          <option title="Molesto">😠</option>
-        </select>
-      </div>
-      <div class="boss-row">
-        <label><input type="checkbox" id="capo2" /> 🪴 capo2</label>
-        <select id="mood2">
-          <option title="Chill">😎</option>
-          <option title="Molesto">😠</option>
-        </select>
-      </div>
-      <div class="boss-row">
-        <label><input type="checkbox" id="capo3" /> 🎣 capo3</label>
-        <select id="mood3">
-          <option title="Chill">😎</option>
-          <option title="Molesto">😠</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="status-display">
-      <h2>📊 Estado del Equipo</h2>
-      <ul id="statusList"></ul>
-    </div>
+    <!-- Visualización general de estados -->
+    <div id="everyone-status" class="status-container"></div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

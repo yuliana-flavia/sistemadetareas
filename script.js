@@ -1,34 +1,24 @@
-function saveState() {
-  const alias = document.getElementById("alias").value;
-  const status = document.getElementById("status").value;
-  const text = document.getElementById("freeText").value;
 
-  const state = { alias, status, text };
-  localStorage.setItem(alias, JSON.stringify(state));
-  renderStates();
+// Usamos localStorage para simular una "sincronización"
+let storedStatus = JSON.parse(localStorage.getItem('everyoneStatus') || '{}');
+
+function updateStatus() {
+  const icon = document.getElementById('icon').value;
+  const message = document.getElementById('message').value;
+  storedStatus[icon] = message;
+  localStorage.setItem('everyoneStatus', JSON.stringify(storedStatus));
+  renderStatus();
 }
 
-function renderStates() {
-  const statusList = document.getElementById("statusList");
-  statusList.innerHTML = "";
-
-  Object.keys(localStorage).forEach((key) => {
-    const item = JSON.parse(localStorage.getItem(key));
-    const statusIcon = getStatusIcon(item.status);
-    const li = document.createElement("li");
-    li.textContent = `${statusIcon} ${key} — ${item.text}`;
-    statusList.appendChild(li);
+function renderStatus() {
+  const container = document.getElementById('everyone-status');
+  container.innerHTML = '';
+  Object.entries(storedStatus).forEach(([icon, msg]) => {
+    const box = document.createElement('div');
+    box.className = 'status-item';
+    box.innerHTML = icon + '<small>' + msg + '</small>';
+    container.appendChild(box);
   });
 }
 
-function getStatusIcon(status) {
-  switch(status) {
-    case "working": return "🟢";
-    case "semi-idle": return "🟡";
-    case "idle": return "🔴";
-    case "out": return "⚪";
-    default: return "❔";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", renderStates);
+window.onload = renderStatus;

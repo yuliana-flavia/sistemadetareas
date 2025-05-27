@@ -1,46 +1,35 @@
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
-  color: #222;
-  padding: 20px;
+  font-family: sans-serif;
+  background: #f4f4f4;
+  padding: 1em;
 }
-.container {
-  max-width: 700px;
-  margin: auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+h1 {
+  display: none;
 }
-h1, h2 {
-  margin-top: 0;
+.status-box {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
-.form-section, .boss-section {
-  margin-bottom: 20px;
+.status-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
 }
-textarea {
-  width: 100%;
-  height: 50px;
-  margin-top: 10px;
+.status-item {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: center;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+.status-item small {
   display: block;
-}
-button {
-  margin-top: 10px;
-  padding: 6px 12px;
-  font-size: 16px;
-}
-.status-display ul {
-  list-style: none;
-  padding-left: 0;
-}
-.status-display li {
-  margin: 5px 0;
-}
-.boss-row {
-  margin: 8px 0;
-}
-select option {
-  cursor: pointer;
-}
-select[title]:hover::after {
-  content: attr(title);
+  font-size: 0.6em;
+  color: #555;
 }
