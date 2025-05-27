@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Tareas Auxiliar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Panel de Actividad</h1>
+
+    <div class="user-input">
+      <label>Alias:</label>
+      <input type="text" id="alias" placeholder="Ej: el_bicho">
+
+      <label>Estado:</label>
+      <select id="estado">
+        <option value="🟢 Trabajando">🟢 Trabajando</option>
+        <option value="🔴 Jefe en zona">🔴 Jefe en zona</option>
+        <option value="🟡 Al pedo">🟡 Al pedo</option>
+        <option value="⚪ Laburando">⚪ Laburando</option>
+        <option value="❓ No sé">❓ No sé</option>
+      </select>
+
+      <label>Comentario:</label>
+      <textarea id="comentario" rows="2"></textarea>
+
+      <button onclick="guardarEstado()">Guardar Estado</button>
+    </div>
+
+    <div class="jefes">
+      <h2>Estado de los Jefes</h2>
+      <label><input type="checkbox" id="manu"> Manu</label>
+      <select id="manuEstado">
+        <option value="😎 Chill">😎 Chill</option>
+        <option value="😡 Molesto">😡 Molesto</option>
+        <option value="😐 Neutro">😐 Neutro</option>
+      </select>
+
+      <label><input type="checkbox" id="fide"> Fide</label>
+      <select id="fideEstado">
+        <option value="😎 Chill">😎 Chill</option>
+        <option value="😡 Molesto">😡 Molesto</option>
+        <option value="😐 Neutro">😐 Neutro</option>
+      </select>
+
+      <button onclick="guardarJefes()">Actualizar Jefes</button>
+    </div>
+
+    <div class="user-state">
+      <h2>Estados Actuales</h2>
+      <div id="estadosContainer"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

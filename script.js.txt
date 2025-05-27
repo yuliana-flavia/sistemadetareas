@@ -1,0 +1,47 @@
+// script.js
+function guardarEstado() {
+  const alias = document.getElementById('alias').value.trim();
+  const estado = document.getElementById('estado').value;
+  const comentario = document.getElementById('comentario').value.trim();
+
+  if (!alias) return alert('Poné tu alias');
+
+  const estados = JSON.parse(localStorage.getItem('estados')) || {};
+  estados[alias] = { estado, comentario };
+  localStorage.setItem('estados', JSON.stringify(estados));
+  mostrarEstados();
+}
+
+function guardarJefes() {
+  const jefeInfo = {
+    manu: document.getElementById('manu').checked ? document.getElementById('manuEstado').value : null,
+    fide: document.getElementById('fide').checked ? document.getElementById('fideEstado').value : null
+  };
+  localStorage.setItem('jefes', JSON.stringify(jefeInfo));
+  mostrarEstados();
+}
+
+function mostrarEstados() {
+  const estados = JSON.parse(localStorage.getItem('estados')) || {};
+  const jefes = JSON.parse(localStorage.getItem('jefes')) || {};
+  const contenedor = document.getElementById('estadosContainer');
+  contenedor.innerHTML = '';
+
+  Object.entries(estados).forEach(([alias, info]) => {
+    const div = document.createElement('div');
+    div.className = 'estado-item';
+    div.textContent = `${alias} - ${info.estado} - ${info.comentario}`;
+    contenedor.appendChild(div);
+  });
+
+  if (jefes.manu || jefes.fide) {
+    const div = document.createElement('div');
+    div.className = 'estado-item';
+    div.innerHTML = `<strong>Jefes:</strong> 
+      ${jefes.manu ? `👨‍💼 Manu (${jefes.manu})` : ''} 
+      ${jefes.fide ? `👨‍💼 Fide (${jefes.fide})` : ''}`;
+    contenedor.appendChild(div);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', mostrarEstados);
